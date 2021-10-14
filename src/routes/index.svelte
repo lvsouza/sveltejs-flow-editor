@@ -1,15 +1,21 @@
 <script type="ts">
 	import { CardsStore } from './CardsStore';
-	import CardDrag from './CardDrag.svelte';
 	import Card from './Card.svelte';
+	import Line from './Line.svelte';
 </script>
 
-<div>
-	{#each $CardsStore as { left, title, top }}
+<svg style="width: 100vw; height: 100vh;">
+	{#each $CardsStore as { left, title, top }, i}
 		<Card {left} {top} {title} />
-		<Card {left} {top} {title} second={true} />
 
-		<CardDrag {left} {top} {title} />
-		<CardDrag {left} {top} {title} second={true} />
+		{#if i + 1 < $CardsStore.length}
+			<Line top1={top} left1={left} top2={$CardsStore[i + 1].top} left2={$CardsStore[i + 1].left} />
+		{/if}
 	{/each}
-</div>
+</svg>
+
+<style>
+	:global(*) {
+		user-select: none;
+	}
+</style>

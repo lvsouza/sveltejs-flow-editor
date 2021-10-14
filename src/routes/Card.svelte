@@ -22,39 +22,7 @@
 	};
 </script>
 
-<div
-	class="card"
-	on:mousedown={registre}
-	style="transform: translate({$left + (second ? 150 : 0)}px, {$top + 150}px);"
->
-	{$title}
-	<input bind:value={$title} />
-</div>
-
-<style>
-	* {
-		user-select: none;
-	}
-
-	input {
-		width: 80%;
-	}
-
-	.card {
-		box-shadow: 0 0 4px 0 black;
-		background-color: white;
-		position: absolute;
-		height: 100px;
-		padding: 8px;
-		cursor: grab;
-		width: 100px;
-		margin: 0;
-		left: 0;
-		top: 0;
-	}
-
-	.card:active {
-		box-shadow: 0 0 8px 0 black;
-		cursor: grabbing;
-	}
-</style>
+<g on:mousedown={registre} style="transform: translate({$left + (second ? 150 : 0)}px, {$top}px);">
+	<text>{$title}</text>
+	<rect fill="blue" style="width: 100px; height: 100px;" />
+</g>
