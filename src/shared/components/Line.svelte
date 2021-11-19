@@ -8,10 +8,10 @@
 	export let top2: Writable<number>;
 	export let left2: Writable<number>;
 
-	$: resolvedTop1 = gridSnap($top1) + 94;
-	$: resolvedTop2 = gridSnap($top2) + 10;
-	$: resolvedLeft1 = gridSnap($left1) + 98;
-	$: resolvedLeft2 = gridSnap($left2) + 8;
+	$: resolvedTop1 = gridSnap($top1) + 97;
+	$: resolvedTop2 = gridSnap($top2) + 11;
+	$: resolvedLeft1 = gridSnap($left1) + 97;
+	$: resolvedLeft2 = gridSnap($left2) + 11;
 
 	$: resolvedLeftMiddle = (resolvedLeft2 - resolvedLeft1) * 0.5;
 	$: resolvedTopMiddle = (resolvedTop2 - resolvedTop1) * 0.5;
@@ -25,6 +25,7 @@
 <path
 	fill="none"
 	stroke="#333"
-	stroke-width="3"
+	stroke-width="4"
+	stroke-linecap="round"
 	d="M{resolvedLeft1},{resolvedTop1} q{resolvedQuadraticX},{resolvedQuadraticY} {resolvedLeftMiddle},{resolvedTopMiddle} T{resolvedLeft2},{resolvedTop2}"
 />
