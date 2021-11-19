@@ -1,2 +1,2 @@
 
-export const gridSnap = (value: number, snap = 15): number => Math.round(value / snap) * snap;
+export const gridSnap = (value: number, snap = 1): number => Math.round(value / snap) * snap;

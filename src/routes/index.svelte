@@ -30,4 +30,7 @@
 		padding: 0;
 		font-family: sans-serif;
 	}
+	:global(body) {
+		background-color: #d2d2d2;
+	}
 </style>

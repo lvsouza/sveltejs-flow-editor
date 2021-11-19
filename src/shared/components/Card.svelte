@@ -8,13 +8,33 @@
 	export let top: Writable<number>;
 </script>
 
-<div
-	use:draggable={{ left, top }}
-	style="background-color: blue;width: 100px; height: 100px;position:absolute;"
->
-	<span>{$title}</span>
-	<input
-		bind:value={$title}
-		style="width: 100%;padding: unset;font-size: smaller;text-align: center;"
-	/>
+<div class="container" use:draggable={{ left, top }}>
+	<span class="title">{$title}</span>
+	<input bind:value={$title} class="title-editor" on:mousedown={(e) => e.stopPropagation()} />
 </div>
+
+<style>
+	.container {
+		gap: 8px;
+		cursor: move;
+		width: 100px;
+		padding: 4px;
+		height: 100px;
+		display: flex;
+		position: absolute;
+		border-radius: 4px;
+		flex-direction: column;
+		background-color: #ffffff;
+		box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px,
+			rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+	}
+	.title {
+		margin-left: 16px;
+	}
+	.title-editor {
+		padding: unset;
+		font-size: smaller;
+		text-align: center;
+		border: thin solid #d2d2d2;
+	}
+</style>
