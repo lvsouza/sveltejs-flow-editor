@@ -1,6 +1,7 @@
 import type { Writable } from "svelte/store";
-import { gridSnap } from './GridSnap';
 import { get } from "svelte/store";
+
+import { gridSnap } from '../services/GridSnap';
 
 interface IDraggableProps {
   left: Writable<number>;
@@ -10,8 +11,8 @@ interface IDraggableProps {
 export const draggable = (node: HTMLElement | SVGElement, { left, top }: IDraggableProps) => {
 
   function handleMouseMove(e: MouseEvent) {
-    const newTop = get(top) + e.movementY;
-    const newLeft = get(left) + e.movementX;
+    const newTop = get(top) + (e.movementY / devicePixelRatio);
+    const newLeft = get(left) + (e.movementX / devicePixelRatio);
 
     top.set(newTop);
     left.set(newLeft);
